@@ -1,13 +1,16 @@
 
 const TelegramBot = require('node-telegram-bot-api');
 const { Configuration, OpenAIApi } = require("openai");
-const token = '6168989019:AAEO-YgqIf8UFvrm6Za9Ktfr6_4ujq1Bevk';
+
+require('dotenv').config();
+
+const token = process.env.Tele_API;
 
 
 const bot = new TelegramBot(token, { polling: true });
 
 const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: process.env.Open_API,
   });
 const openaiClient = new OpenAIApi(configuration);
 
