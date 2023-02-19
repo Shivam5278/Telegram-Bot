@@ -22,12 +22,11 @@ bot.on('message', async (msg) => {
     const response = await openaiClient.createCompletion({
         model: "text-davinci-003",
         prompt: message,
-        temperature: 0.9,
-        max_tokens: 150,
-        top_p: 1,
-        frequency_penalty: 0.0,
-        presence_penalty: 0.6,
-        stop: ["Human:", "AI:"],
+        temperature: 0.5,
+        max_tokens: 60,
+        top_p: 0.3,
+        frequency_penalty: 0.5,
+        presence_penalty: 0.0,
       });
 
     // send the response back to the user
