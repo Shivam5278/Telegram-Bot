@@ -18,7 +18,7 @@ const openaiClient = new OpenAIApi(configuration);
 bot.on('message', async (msg) => {
   // get the user's message
   const message = msg.text;
-
+console.log(message);
   try {
     // send the message to OpenAI's GPT-3 API
     const response = await openaiClient.createCompletion({
