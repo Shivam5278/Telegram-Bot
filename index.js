@@ -14,7 +14,7 @@ const configuration = new Configuration({
   });
 const openaiClient = new OpenAIApi(configuration);
 console.log(process.env.Tele_API);
-console.log(process.env.Open_API):
+console.log(process.env.Open_API);
 // register a message listener
 bot.on('message', async (msg) => {
   // get the user's message
