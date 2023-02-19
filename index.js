@@ -13,20 +13,21 @@ const configuration = new Configuration({
     apiKey: process.env.Open_API,
   });
 const openaiClient = new OpenAIApi(configuration);
-console.log(process.env.Tele_API);
-console.log(process.env.Open_API);
 // register a message listener
 bot.on('message', async (msg) => {
   // get the user's message
   const message = msg.text;
-console.log(message);
   try {
     // send the message to OpenAI's GPT-3 API
     const response = await openaiClient.createCompletion({
         model: "text-davinci-003",
         prompt: message,
-        temperature: 0.1,
-        max_tokens: 500,
+        temperature: 0.9,
+        max_tokens: 150,
+        top_p: 1,
+        frequency_penalty: 0.0,
+        presence_penalty: 0.6,
+        stop: ["Human:", "AI:"],
       });
 
     // send the response back to the user
