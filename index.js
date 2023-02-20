@@ -17,6 +17,7 @@ const openaiClient = new OpenAIApi(configuration);
 bot.on('message', async (msg) => {
   // get the user's message
   const message = msg.text;
+  console.log('User: ',msg.chat.id)
   console.log(message);
   try {
     // send the message to OpenAI's GPT-3 API
@@ -40,7 +41,7 @@ bot.on('message', async (msg) => {
       });
 
     // send the response back to the user
-    console.log(response.data.choices[0].text);
+    console.log('Bot: ',response.data.choices[0].text);
     bot.sendMessage(msg.chat.id, response.data.choices[0].text);
   } catch (err) {
     //console.error(err);
