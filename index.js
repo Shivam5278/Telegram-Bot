@@ -25,9 +25,10 @@ bot.on('message', async (msg) => {
         model: "text-davinci-003",
         prompt: `The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly. It can answer any question in the simplest way and can perform any task.
 
-        Human: Hello, who are you?
+        You: Hello, who are you?
         AI: I am an AI created by OpenAI. How can I help you today?
-        Human: ` + message + '.',
+        You: ` + message + `
+        AI:`,
         temperature: 0.9,
         max_tokens: 150,
         top_p: 1,
