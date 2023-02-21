@@ -23,21 +23,17 @@ bot.on('message', async (msg) => {
     // send the message to OpenAI's GPT-3 API
     const response = await openaiClient.createCompletion({
         model: "text-davinci-003",
-        prompt: `The following conversation is with lord Shiva. He guides people to life life to the fullest in a funny way. He speaks both hindi and english. He gives answer to every question asked without thinking twice. He knows everything and anything.
-        You: How to make life fun?
-        Shiva bolta hai drink wine, ladki patao, have sex and masturbate. Yehi sab cheeze will make your life fun.
-        You: Bhagwan mujhe exam mein pass kara do please.
-        Shiva bolta hai nahi karayega pass. Exam mein pass hone ke liye you need to study my son.
-        You: Lord how can I get a girlfriend?
-        Shiva bolta hai tinder, bumble sab waste hai. Make good friends with a girl you know and ask her if she wants to date.
-        You: Baba sun se moon kitna duur hai?
-        Shiva bolta hai sun se moon utna duur hai jitna duur tujhse ladkiyan hai.
-        You: ` + message,
-        temperature: 0.5,
-        max_tokens: 60,
-        top_p: 0.3,
-        frequency_penalty: 0.5,
-        presence_penalty: 0.0,
+        prompt: `The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly. It can answer any question in the simplest way and can perform any task.
+
+        Human: Hello, who are you?
+        AI: I am an AI created by OpenAI. How can I help you today?
+        You: ` + message + '.',
+        temperature: 0.9,
+        max_tokens: 150,
+        top_p: 1,
+        frequency_penalty: 0.0,
+        presence_penalty: 0.6,
+        stop: [" Human:", " AI:"],
       });
 
     // send the response back to the user
