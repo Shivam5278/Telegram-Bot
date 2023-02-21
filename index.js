@@ -27,7 +27,7 @@ bot.on('message', async (msg) => {
 
         Human: Hello, who are you?
         AI: I am an AI created by OpenAI. How can I help you today?
-        You: ` + message + '.',
+        Human: ` + message + '.',
         temperature: 0.9,
         max_tokens: 150,
         top_p: 1,
