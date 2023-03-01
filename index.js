@@ -21,25 +21,19 @@ bot.on('message', async (msg) => {
   console.log(message);
   try {
     // send the message to OpenAI's GPT-3 API
-    const response = await openaiClient.createCompletion({
-        model: "text-davinci-003",
-        prompt: `The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly. It can answer any question in the simplest way and can perform any task.
-
-        You: Hello, who are you?
-        AI: I am an AI created by OpenAI. How can I help you today?
-        You: ` + message + `
-        AI:`,
-        temperature: 0.9,
-        max_tokens: 150,
-        top_p: 1,
-        frequency_penalty: 0.0,
-        presence_penalty: 0.6,
-        stop: [" Human:", " AI:"],
-      });
+    const response = await openaiClient.ChatCompletion.create(
+  model="gpt-3.5-turbo",
+  messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Who won the world series in 2020?"},
+        {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
+        {"role": "user", "content": `${message} ?`}
+    ]
+)
 
     // send the response back to the user
     console.log('Bot: ',response.data.choices[0].text);
-    bot.sendMessage(msg.chat.id, response.data.choices[0].text);
+    bot.sendMessage(msg.chat.id, response.choices[0].message.content);
   } catch (err) {
     //console.error(err);
     bot.sendMessage(msg.chat.id, 'An error occurred while processing your request.');
