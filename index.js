@@ -32,8 +32,8 @@ bot.on('message', async (msg) => {
 )
 
     // send the response back to the user
-    console.log('Bot: ',response.choices[0].message.content);
-    bot.sendMessage(msg.chat.id, response.choices[0].message.content);
+    console.log('Bot: ',response);//.choices[0].message.content);
+    //bot.sendMessage(msg.chat.id, response.choices[0].message.content);
   } catch (err) {
     //console.error(err);
     bot.sendMessage(msg.chat.id, 'An error occurred while processing your request.');
