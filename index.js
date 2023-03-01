@@ -32,7 +32,7 @@ bot.on('message', async (msg) => {
 )
 
     // send the response back to the user
-    console.log('Bot: ',response.data.choices[0].text);
+    console.log('Bot: ',response.choices[0].message.content);
     bot.sendMessage(msg.chat.id, response.choices[0].message.content);
   } catch (err) {
     //console.error(err);
